@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo login and Sign in</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            width: 98vw;
+        }
+        
+        section {
+            width: 75%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <section class=" mx-auto ">
+        <h1>Creating Demo Login and Sign up for projects</h1>
+        <p>Here is some thing interesting for you all.As you all know that in every project we all need<br> demo sign in and login in part and this put stars in our projects.Customize<br> it according to your need so that it seems more beautiful.</p>
+
+        <p>See live <a href="https://mohitk30.github.io/demo-login-signup/"> Demo</a></p>
+
+        <div class="w-75 mx-auto ">
+            <h2> • HTML code </h2>
+            <p class="small-para "> Add this html code in a new page into a section in you project
+                <code>
+                <xmp>
+
+                <div id="login-or-signup" class="mx-auto">
+                    <div id="signup-div">
+                        <label for="Nmae">Name
+                        <input id="iname" type="text" placeholder="Name" class="mb-3" required></label>
+                        <label for="">Email
+                        <input id="iemail" type="Email" placeholder="Email" class="mb-3" required></label>
+                        <label for="">Password
+                        <input id="ipass" type="password" placeholder="Password" class="mb-3" required></label>
+                        <button onclick="signup()">Sign up</button>
+        
+                        <br> <br> Already have an account. Then <br>
+                        <button onclick="showin()">Sign in</button>
+        
+                    </div>
+                    <div id="login-div">
+                        <label for="">Email
+                        <input id="oemail" type="Email" placeholder="Email" class="mb-3" required></label>
+                        <label for="">Password
+                        <input id="opass" type="password" placeholder="Password" class="mb-3" required></label>
+                        <button onclick="signin()">Sign in</button>
+        
+                        <br> <br> Don't have account. Then <br>
+                        <button onclick="showup()">Sign up</button>
+                    </div>
+                </div>
+ 
+            </xmp>
+
+            </code>
+            </p>
+
+            <h2> • CSS code </h2>
+            <p class="small-para ">Add this CSS Code in your style sheet.</p>
+            <!-- <img class="mx-auto " height="50% " width="75% " src="images/blogimg1.jpg "> -->
+            <code>
+<xmp>
+    
+                    
+                    * {
+                        background-color: rgb(207, 188, 188);
+                        color: rgb(53, 53, 70);
+                    }
+                    
+                    #login-div {
+                        display: none;
+                    }
+                    
+                    #login-or-signup {
+                        width: 150px;
+                    }
+
+
+
+</xmp>
+
+            </code>
+            <h2> • Javascript code </h2>
+            <p>
+                Add this javascript code into the script section or in your external js file.
+            </p>
+            <code>
+
+<xmp>
+
+
+                        function signup() {
+                            window.localStorage.clear();
+                            var name = document.getElementById("iname").value;
+                            var email = document.getElementById("iemail").value;
+                            var pass = document.getElementById("ipass").value;
+                        
+                            if (((email.localeCompare("")) === 0) || ((name.localeCompare("")) === 0) || ((pass.localeCompare("")) === 0)) {
+                                location.reload();
+                                window.localStorage.clear();
+                                alert("All field are mandatory.")
+                            } else {
+                                localStorage.setItem("mname", name);
+                                localStorage.setItem("memail", email);
+                                localStorage.setItem("mpass", pass);
+                                alert("Your account is created, Please sign in");
+                            }
+                        
+                        }
+                        
+                        function signin() {
+                            var myemail = localStorage.getItem("memail");
+                            var mypass = localStorage.getItem("mpass");
+                            var eemail = document.getElementById("oemail").value;
+                            var epass = document.getElementById("opass").value;
+                            console.log(myemail);
+                            console.log(mypass);
+                            console.log(eemail);
+                            console.log(epass);
+                        
+                        
+                            if ((eemail.localeCompare(myemail)) == 0 && (epass.localeCompare(mypass)) == 0) {
+                                alert("Thank you for signing in");
+                                window.localStorage.clear();
+                        
+                            } else {
+                                alert("Wrong Password or Email Address,Try again signing in");
+                        
+                            }
+                        
+                        
+                        }
+                        
+                        function showin() {
+                            document.getElementById("login-div").style.display = "block";
+                            document.getElementById("signup-div").style.display = "none";
+                        }
+                        
+                        function showup() {
+                            document.getElementById("login-div").style.display = "none";
+                            document.getElementById("signup-div").style.display = "block";
+                        }
+
+
+
+
+</xmp>
+
+
+             </code>
+            <img height="50% " width="75% " src="signup.PNG">
+
+
+
+            <br>
+            <p> <strong> Feel free to use this in your projects.</strong> </p>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+</body>
+
+</html>
